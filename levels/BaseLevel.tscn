@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://entities/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/267291-video_games-pixels-pixel_art-Steredenn-indie_games-space.jpg" type="Texture" id=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+
+[node name="BaseLevel" type="Node2D"]
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 138, 306 )
+z_index = 1
+mass = 1.0
+physics_material_override = SubResource( 1 )
+gravity_scale = 0.0
+linear_damp = 10.0
+engine_thrust = 20
+spin_thrust = 0.8
+
+[node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
+current = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D"]
+position = Vector2( -14, 1 )
+scale = Vector2( 1.1, 0.9 )
+polygon = PoolVector2Array( 9.0909, -34.4444, -10.9091, -11.1111, -10, 28.8889, 31.8182, 28.8889, 30.9091, -10 )
+
+[node name="BG" type="Sprite" parent="."]
+position = Vector2( 636, 283 )
+texture = ExtResource( 2 )
+
+[node name="KinematicBody2D2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 126, 45 )
+rotation = 1.57079
+z_index = 1
+mass = 1.0
+gravity_scale = 0.0
+linear_damp = 5.0
+script = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D2"]
+position = Vector2( -14, 1 )
+scale = Vector2( 1.1, 0.9 )
+polygon = PoolVector2Array( 9.0909, -34.4444, -10.9091, -11.1111, -10, 28.8889, 31.8182, 28.8889, 30.9091, -10 )
